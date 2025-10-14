@@ -19,7 +19,3 @@ def fetch_info_from_api(category):
 
 races = fetch_info_from_api("races")
 classes = fetch_info_from_api("classes")
-
-
-
-
