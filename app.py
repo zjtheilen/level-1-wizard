@@ -1,33 +1,7 @@
 # imports
 import requests
 
-# Class for character objects
-# initializes with player_name, character_name, and empty fields for race / class
-class Character:
-    def __init__(self, player_name, character_name):
-        self.player_name = player_name
-        self.character_name = character_name
-        self.race = ""
-        self.char_class = ""
-    
-    # when logging the object, return a useful name
-    def __str__(self):
-        return f"{self.character_name}"
-
-    def __repr__(self):
-        return f"{self.character_name}"
-
-
-class Character_Class(Character):
-    def __init__(self, player_name, character_name, class_name):
-        super().init(player_name, character_name)
-        self.class_name = class_name
-
-    def __str__(self):
-        return f"{self.class_name}"
-    
-    def __repr__(self):
-        return(f"{self.class_name}")
+from classes.Character import Character, Character_Class
 
 
 # Fetch and prepare races
@@ -73,3 +47,12 @@ print()
 
 # ben = Character(player_name="Zach", character_name="Bobbly-Ben")
 # print(ben)
+
+zach = Character(player_name="Zach", character_name="Bobbly-Ben")
+zach = Character_Class(
+    player_name=zach.player_name, 
+    character_name=zach.character_name,
+    class_name=class_map[x]
+)
+
+print(f"{zach.player_name} is playing a {y.lower()} {x.lower()}.")
