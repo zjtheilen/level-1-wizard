@@ -5,7 +5,6 @@ class Character:
         self.race = ""
         self.char_class = ""
     
-    # when logging the object, return a useful name
     def __str__(self):
         return f"{self.character_name}"
 
