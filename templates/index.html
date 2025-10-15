@@ -7,7 +7,7 @@
     </head>
     <body>
         <h1>Let's create a level 1 character!</h1>
-
+        <hr>
         <label for="race">Select Race:</label>
         <select name="race" id="race">
             {% for race in races %}
@@ -15,8 +15,8 @@
                 <option value="{{race}}">{{race.capitalize()}}</option>
             {% endfor %}
         </select>
-
-        <label for="class_">Select Race:</label>
+        <br>
+        <label for="class_">Select Class:</label>
         <select name="class_" id="class_">
             {% for class_ in classes %}
                 <label for="{{class_}}"></label>

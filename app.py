@@ -13,17 +13,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 # from classes.Character import Character, CharacterClass, CharacterRace
 # from fetch import races, classes
 
