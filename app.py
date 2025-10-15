@@ -1,43 +1,32 @@
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask, redirect, url_for, render_template, request
+
 from fetch import races, classes
-# from pages.homepage import homepage
+from classes.Character import Character, CharacterClass, CharacterRace
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def home():
-    return render_template("index.html", races=races, classes=classes)
+    if request.method == "POST":
+        race_name = request.form.get("race")
+        class_name = request.form.get("class_")
+        print(f"User selected race={race_name}, class={class_name}")
+
+        race = CharacterRace(race_name)
+        char_class = CharacterClass(class_name)
+        character = Character(player_name="Zach", character_name="Grog")
+        character.race = race
+        character.class_ = char_class
+
+        print(f"{character.player_name.capitalize()} is playing a {character.race} {character.class_}.")
+
+        return render_template("index.html",
+                               races=races,
+                               classes=classes,
+                               character=character)
+
+    return render_template("index.html", races=races, classes=classes, character=None)
 
 if __name__ == "__main__":
     app.run()
-
-
-
-# from classes.Character import Character, CharacterClass, CharacterRace
-# from fetch import races, classes
-
-# def get_input(category):
-#     print(f"Please select one of the following:")
-#     for each in category:
-#         print(f" -- {each}")
-#     x = input("-> ")
-#     print(f"You have selected {x}")
-#     return x
-
-# user_class_name = get_input(classes)
-# user_race_name = get_input(races)
-
-# user_class = CharacterClass(user_class_name)
-# user_race = CharacterRace(user_race_name)
-
-
-# # TESTING 
-# zach = Character(player_name="Zach", character_name="Grog")
-# zach.race = user_race
-# zach.char_class = user_class
-
-# print(zach.player_name)
-# print(zach.race)
-# print(zach.char_class)
-# print(zach)
 
