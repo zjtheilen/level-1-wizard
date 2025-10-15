@@ -23,11 +23,12 @@ class CharacterRace:
 
 
 class Character:
-    def __init__(self, player_name: str, character_name: str):
+    def __init__(self, player_name: str, character_name: str, 
+                 race: CharacterRace, char_class: CharacterClass):
         self.player_name: str = player_name
         self.character_name: str = character_name
-        self.race: CharacterRace | None = None
-        self.class_: CharacterClass | None = None  
+        self.race: CharacterRace = race
+        self.class_: CharacterClass = char_class
 
     def __str__(self):
         parts = [self.character_name]

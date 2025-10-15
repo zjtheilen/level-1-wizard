@@ -7,33 +7,44 @@
     </head>
     <body>
         <h1 id="page-title">Let's create a level 1 character!</h1>
-        {% if character and character.race and character.class_ %}
-            <h2>Creating a {{character.race}} {{character.class_}}</h2>
+        {% if character %}
+            <h2>
+                {{ character.player_name.capitalize() }} is playing a 
+                {{ character.race }} {{ character.class_ }} named {{ character.character_name.capitalize() }}.
+            </h2>
         {% endif %}
         {% if error %}
             <h2 style="color: red;">{{ error }}</h2>
         {% endif %}
         <hr>
         <form action="/" method="POST">
+            <label for="player_name">Player name:</label>
+            <input type="text" id="player_name" name="player_name" required>
+
+            <label for="character_name">Character name:</label>
+            <input type="text" id="character_name" name="character_name" required>
+
+            <br><br>
             <label for="race">Select Race:</label>
             <select name="race" id="race" required>
                 <option value="" disabled selected value>Select Race</option>
                 {% for race in races %}
                     <label for="{{race}}"></label>
-                    <option value="{{race}}">{{race.capitalize()}}</option>
+                    <option value="{{race.lower()}}">{{race.capitalize()}}</option>
                 {% endfor %}
             </select>
-            <br><br>
+            <!-- <br><br> -->
             <label for="class_">Select Class:</label>
             <select name="class_" id="class_" required>
                 <option value="" disabled selected value>Select Class</option>
                 {% for class_ in classes %}
                     <label for="{{class_}}"></label>
-                    <option value="{{class_}}">{{class_.capitalize()}}</option>
+                    <option value="{{class_.lower()}}">{{class_.capitalize()}}</option>
                 {% endfor %}
             </select>
             <br><br>
             <button type="submit">Create Character</button>
         </form>
+        <hr>
     </body>
 </html>
