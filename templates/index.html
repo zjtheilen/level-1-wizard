@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Level 1 Character Wizard</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+    </head>
+    <body>
+        <h1>Let's create a level 1 character!</h1>
+
+        <label for="race">Select Race:</label>
+        <select name="race" id="race">
+            {% for race in races %}
+                <label for="{{race}}"></label>
+                <option value="{{race}}">{{race.capitalize()}}</option>
+            {% endfor %}
+        </select>
+
+        <label for="class_">Select Race:</label>
+        <select name="class_" id="class_">
+            {% for class_ in classes %}
+                <label for="{{class_}}"></label>
+                <option value="{{class_}}">{{class_.capitalize()}}</option>
+            {% endfor %}
+        </select>
+    </body>
+</html>
