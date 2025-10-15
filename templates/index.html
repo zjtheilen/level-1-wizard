@@ -6,11 +6,18 @@
         <meta name="viewport" content="width=device-width,initial-scale=1" />
     </head>
     <body>
-        <h1>Let's create a level 1 character!</h1>
+        <h1 id="page-title">Let's create a level 1 character!</h1>
+        {% if character and character.race and character.class_ %}
+            <h2>Creating a {{character.race}} {{character.class_}}</h2>
+        {% endif %}
+        {% if error %}
+            <h2 style="color: red;">{{ error }}</h2>
+        {% endif %}
         <hr>
         <form action="/" method="POST">
             <label for="race">Select Race:</label>
-            <select name="race" id="race">
+            <select name="race" id="race" required>
+                <option value="" disabled selected value>Select Race</option>
                 {% for race in races %}
                     <label for="{{race}}"></label>
                     <option value="{{race}}">{{race.capitalize()}}</option>
@@ -18,7 +25,8 @@
             </select>
             <br><br>
             <label for="class_">Select Class:</label>
-            <select name="class_" id="class_">
+            <select name="class_" id="class_" required>
+                <option value="" disabled selected value>Select Class</option>
                 {% for class_ in classes %}
                     <label for="{{class_}}"></label>
                     <option value="{{class_}}">{{class_.capitalize()}}</option>

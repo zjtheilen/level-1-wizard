@@ -10,6 +10,15 @@ def home():
     if request.method == "POST":
         race_name = request.form.get("race")
         class_name = request.form.get("class_")
+
+        if not race_name or not class_name:
+            error_message = "Need both race and class before moving on."
+            return render_template("index.html",
+                                   races=races,
+                                   classes=classes,
+                                   character=None,
+                                   error=error_message)
+
         print(f"User selected race={race_name}, class={class_name}")
 
         race = CharacterRace(race_name)
