@@ -1,0 +1,13 @@
+html{
+    background-image: url(/static/images/bg.jpg);
+}
+
+body {
+    max-width: 1000px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.error-message {
+     color: red;
+}
