@@ -10,7 +10,7 @@
         {% if character %}
             <h2>
                 {{ character.player_name.capitalize() }} is playing a 
-                {{ character.race }} {{ character.class_ }} named {{ character.character_name.capitalize() }}.
+                {{ character.race }} {{ character.char_class }} named {{ character.character_name.capitalize() }}.
             </h2>
         {% endif %}
         {% if error %}
@@ -34,12 +34,12 @@
                 {% endfor %}
             </select>
             <!-- <br><br> -->
-            <label for="class_">Select Class:</label>
-            <select name="class_" id="class_" required>
+            <label for="char_class">Select Class:</label>
+            <select name="char_class" id="char_class" required>
                 <option value="" disabled selected value>Select Class</option>
-                {% for class_ in classes %}
-                    <label for="{{class_}}"></label>
-                    <option value="{{class_.lower()}}">{{class_.capitalize()}}</option>
+                {% for char_class in classes %}
+                    <label for="{{char_class}}"></label>
+                    <option value="{{char_class.lower()}}">{{char_class.capitalize()}}</option>
                 {% endfor %}
             </select>
             <br><br>

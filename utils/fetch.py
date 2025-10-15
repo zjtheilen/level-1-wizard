@@ -1,4 +1,3 @@
-# imports
 import requests
 
 def fetch_info_from_api(category):

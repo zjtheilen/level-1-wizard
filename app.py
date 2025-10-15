@@ -1,6 +1,6 @@
-from flask import Flask, redirect, url_for, render_template, request
+from flask import Flask, render_template, request
 
-from fetch import races, classes
+from utils.fetch import races, classes
 from classes.Character import Character, CharacterClass, CharacterRace
 
 app = Flask(__name__)
@@ -9,7 +9,7 @@ app = Flask(__name__)
 def home():
     if request.method == "POST":
         race_name = request.form.get("race")
-        class_name = request.form.get("class_")
+        class_name = request.form.get("char_class")
         player_name = request.form.get("player_name")
         character_name = request.form.get("character_name")
 
@@ -32,7 +32,7 @@ def home():
             char_class=char_class)
 
         print(f"{character.player_name.capitalize()} is playing a "
-              f"{character.race} {character.class_} named {character.character_name.capitalize()}.")
+              f"{character.race} {character.char_class} named {character.character_name.capitalize()}.")
 
         return render_template("index.html",
                                races=races,

@@ -1,7 +1,7 @@
 class CharacterClass:
     def __init__(self, name):
         self.name = name
-        # later, you can add spell lists, hit dice, proficiencies, etc.
+        # later, add spell lists, hit dice, proficiencies, etc.
 
     def __str__(self):
         return self.name
@@ -13,7 +13,7 @@ class CharacterClass:
 class CharacterRace:
     def __init__(self, name):
         self.name = name
-        # later, you can add resistances, languages, etc.
+        # later, add resistances, languages, etc.
 
     def __str__(self):
         return self.name
@@ -28,15 +28,15 @@ class Character:
         self.player_name: str = player_name
         self.character_name: str = character_name
         self.race: CharacterRace = race
-        self.class_: CharacterClass = char_class
+        self.char_class: CharacterClass = char_class
 
     def __str__(self):
         parts = [self.character_name]
-        if self.class_:
-            parts.append(f"the {self.class_}")
+        if self.char_class:
+            parts.append(f"the {self.char_class}")
         if self.race:
             parts.append(f"({self.race})")
         return " ".join(parts)
 
     def __repr__(self):
-        return f"Character({self.character_name}, {self.class_})"
+        return f"Character({self.character_name}, {self.char_class})"
