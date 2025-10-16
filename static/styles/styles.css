@@ -8,6 +8,14 @@ body {
     text-align: center;
 }
 
+div {
+    padding: 10px;
+}
+
+span {
+    padding: 0 10px;
+}
+
 .error-message {
      color: red;
 }
