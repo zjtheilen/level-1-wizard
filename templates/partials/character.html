@@ -1,0 +1,9 @@
+{% if character %}
+<div class="character-summary">
+    <p><strong>Race:</strong> {{ character.race }}</p>
+    <p><strong>Class:</strong> {{ character.char_class }}</p>
+    <p><strong>Speed:</strong> {{ character.race.speed }}</p>
+    <p><strong>Hit Die:</strong> {{ character.char_class.hit_die }}</p>
+    <!-- Expand later as you add more stats -->
+</div>
+{% endif %}
