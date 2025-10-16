@@ -19,6 +19,7 @@
         {% endif %}
         <hr>
         <form action="/" method="POST">
+            <!-- TODO move names to final step -->
             <label for="player_name">Player name:</label>
             <input type="text" id="player_name" name="player_name" required>
 
@@ -47,5 +48,8 @@
             <button type="submit">Create Character</button>
         </form>
         <hr>
+        <div class="output">
+            {% include 'character.html' %}
+        </div>
     </body>
 </html>

@@ -38,7 +38,12 @@ def home():
         race = CharacterRace(race_name)
         race.size = size
         race.speed = speed
+        race.abilities = {}
         race.ability_bonuses = ability_bonuses
+        for ability in race.ability_bonuses:
+            name = ability['ability_score']['name']
+            value = ability['bonus']
+            race.abilities[name] = value
         race.languages = languages
         
         class_url = f"https://www.dnd5eapi.co/api/2014/classes/{class_name.lower()}"
@@ -65,6 +70,15 @@ def home():
             character_name=character_name,
             race=race,
             char_class=char_class)
+        
+        print(
+            f"Character race/class: {character.race}/{character.char_class}.\n"
+            f"{character.player_name} named his character {character.character_name}.\n"
+            f"speed: {character.race.speed}, size: {character.race.size}\n"
+            f"ability scores before rolling: {character.ability_scores}\n"
+            f"proficiencies: {character.char_class.proficiencies}\n"
+            f"saving throws: {character.char_class.saving_throws}\n"
+        )
 
         return render_template("index.html", races=races, classes=classes, character=character)
 
