@@ -1,6 +1,18 @@
 import requests
 
-def fetch_info_from_api(category):
+API_BASE = "https://www.dnd5eapi.co/api/2014"
+
+def get_race_data(race_name):
+    url = f'{API_BASE}/races/{race_name.lower()}'
+    response = requests.get(url)
+    return response.json() if response.ok else None
+
+def get_class_data(class_name):
+    url = f'{API_BASE}/classes/{class_name.lower()}'
+    response = requests.get(url)
+    return response.json() if response.ok else None
+
+def fetch_list_from_api(category):
     url = f"https://www.dnd5eapi.co/api/2014/{category}"
     try:
         response = requests.get(url)
@@ -16,5 +28,5 @@ def fetch_info_from_api(category):
         print(f"Error fetching {category}: {e}")
         return set()
 
-races = fetch_info_from_api("races")
-classes = fetch_info_from_api("classes")
+races = fetch_list_from_api("races")
+classes = fetch_list_from_api("classes")
