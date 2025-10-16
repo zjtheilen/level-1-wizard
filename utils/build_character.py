@@ -1,9 +1,10 @@
-from classes.Character import Character, CharacterClass, CharacterRace
-from utils.fetch import get_class_data, get_race_data
+from classes.Character import Character, CharacterClass, CharacterRace, CharacterBackground
+from utils.fetch import get_class_data, get_race_data, get_background_data
 
-def build_character(player_name, character_name, race_name, class_name):
+def build_character(player_name, character_name, race_name, class_name, background_name):
     race_data = get_race_data(race_name)
     class_data = get_class_data(class_name)
+    background_data = get_background_data(background_name)
 
     race = CharacterRace(race_name)
     if race_data:
@@ -22,10 +23,13 @@ def build_character(player_name, character_name, race_name, class_name):
         char_class.proficiencies = class_data.get("proficiencies", [])
         char_class.saving_throws = class_data.get("saving_throws", [])
         char_class.starting_equipment = class_data.get("starting_equipment", [])
+    
+    char_background = CharacterBackground(background_name)
 
     return Character(
         player_name=player_name,
         character_name=character_name,
         race=race,
-        char_class=char_class
+        char_class=char_class,
+        background=char_background
     )    

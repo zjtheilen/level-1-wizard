@@ -22,13 +22,28 @@ class CharacterRace:
         return f"CharacterRace({self.name})"
 
 
+class CharacterBackground:
+    def __init__(self, name):
+        self.name = name
+        # later, add bonuses, etc.
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return f"CharacterBackground({self.name})"
+
+
 class Character:
     def __init__(self, player_name: str, character_name: str, 
-                 race: CharacterRace, char_class: CharacterClass):
+                 race: CharacterRace, 
+                 char_class: CharacterClass,
+                 background: CharacterBackground):
         self.player_name: str = player_name
         self.character_name: str = character_name
         self.race: CharacterRace = race
         self.char_class: CharacterClass = char_class
+        self.background: CharacterBackground = background
         self.ability_scores = {
             'STR': 0,
             'DEX': 0,

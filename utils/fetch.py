@@ -12,6 +12,11 @@ def get_class_data(class_name):
     response = requests.get(url)
     return response.json() if response.ok else None
 
+def get_background_data(background_name):
+    url = f'{API_BASE}/backgrounds/{background_name.lower()}'
+    response = requests.get(url)
+    return response.json() if response.ok else None
+
 def fetch_list_from_api(category):
     url = f"https://www.dnd5eapi.co/api/2014/{category}"
     try:
@@ -30,3 +35,4 @@ def fetch_list_from_api(category):
 
 races = fetch_list_from_api("races")
 classes = fetch_list_from_api("classes")
+backgrounds = fetch_list_from_api("backgrounds")

@@ -22,6 +22,14 @@
         {% endfor %}
     </select>
 
+    <label for="background_name">Select Background:</label>
+    <select name="background_name" id="background_name" required>
+        <option value="" disabled selected>Select Background</option>
+        {% for background_name in backgrounds %}
+            <option value="{{background_name.lower()}}">{{background_name.capitalize()}}</option>
+        {% endfor %}
+    </select>    
+
     <br><br>
     <button type="submit">Create Character</button>
 </form>
