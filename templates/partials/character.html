@@ -1,5 +1,9 @@
 {% if character %}
 <div class="character-summary">
+    <h2>
+        {{ character.player_name.capitalize() }} is playing a 
+        {{ character.race }} {{ character.char_class }} named {{ character.character_name.capitalize() }}.
+    </h2>
     <p><strong>Race:</strong> {{ character.race }}</p>
     <p><strong>Class:</strong> {{ character.char_class }}</p>
     <p><strong>Speed:</strong> {{ character.race.speed }}</p>

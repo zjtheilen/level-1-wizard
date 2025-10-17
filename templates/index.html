@@ -2,23 +2,14 @@
 {% block title %}Character Creator{% endblock %}
 
 {% block content %}
-    {% if character %}
-        <h2>
-            {{ character.player_name.capitalize() }} is playing a 
-            {{ character.race }} {{ character.char_class }} named {{ character.character_name.capitalize() }}.
-        </h2>
-    {% endif %}
     {% if error %}
-        <hr>
         <div>
             {% include "partials/error.html" %}
         </div>
     {% endif %}
-    <hr>
     <div>
         {% include "partials/form.html" %}
     </div>
-    <hr>
     <div class="output">
         {% include "partials/character.html" %}
     </div>
