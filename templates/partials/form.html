@@ -11,7 +11,6 @@
     <div>
     <div>
         <span>
-            <!-- <label for="race">Select Race:</label> -->
             <select name="race" id="race" required>
                 <option value="" disabled selected>Select Race</option>
                 {% for race in races %}
@@ -20,7 +19,6 @@
             </select>
         </span>
         <span>
-            <!-- <label for="char_class">Select Class:</label> -->
             <select name="char_class" id="char_class" required>
                 <option value="" disabled selected>Select Class</option>
                 {% for char_class in classes %}
@@ -29,7 +27,6 @@
             </select>
         </span>
         <span>
-            <!-- <label for="background_name">Select Background:</label> -->
             <select name="background_name" id="background_name" required>
                 <option value="" disabled selected>Select Background</option>
                 {% for background_name in backgrounds %}
@@ -41,40 +38,9 @@
 
     <div>
         <span class="dice-roller">
-            <span style="width: 16.5%"><button type="button" onclick="rollDice('rollout1')">Roll 1</button></span>
-            <span style="width: 16.5%"><button type="button" onclick="rollDice('rollout2')">Roll 2</button></span>
-            <span style="width: 16.5%"><button type="button" onclick="rollDice('rollout3')">Roll 3</button></span>
-            <span style="width: 16.5%"><button type="button" onclick="rollDice('rollout4')">Roll 4</button></span>
-            <span style="width: 16.5%"><button type="button" onclick="rollDice('rollout5')">Roll 5</button></span>
-            <span style="width: 16.5%"><button type="button" onclick="rollDice('rollout6')">Roll 6</button></span>
-            <span style="width: 16.5%"><button type="button" onclick="rollDice('rollout7')">Roll 7</button></span>
+            <span style="width: 16.5%"><button type="button" onclick="rollAbilities()">Roll Ability Scores</button></span>
             <br>
-            <span style="width: 16.5%; background-color: rgba(255,255,255,.25)"><span id="rollout1"></span></span>
-            <span style="width: 16.5%; background-color: rgba(255,255,255,.25)"><span id="rollout2"></span></span>
-            <span style="width: 16.5%; background-color: rgba(255,255,255,.25)"><span id="rollout3"></span></span>
-            <span style="width: 16.5%; background-color: rgba(255,255,255,.25)"><span id="rollout4"></span></span>
-            <span style="width: 16.5%; background-color: rgba(255,255,255,.25)"><span id="rollout5"></span></span>
-            <span style="width: 16.5%; background-color: rgba(255,255,255,.25)"><span id="rollout6"></span></span>
-            <span style="width: 16.5%; background-color: rgba(255,255,255,.25)"><span id="rollout7"></span></span>
-            <script>
-                function rollDice(outputId) {
-                    let results = [];
-                    let topThreeSum = 0;
-
-                    do {
-                        results = [];
-                        for (let i = 0; i < 4; i++) {
-                            results.push(Math.floor(Math.random() * 6) + 1);
-                        }
-
-                        const sorted = [...results].sort((a, b) => b - a);
-                        topThreeSum = sorted.slice(0, 3).reduce((a, b) => a + b, 0);
-
-                    } while (topThreeSum < 8);
-
-                    document.getElementById(outputId).innerText = `${results.join(", ")} → ${topThreeSum}`;
-                }
-            </script>
+            <span style="width: 16.5%; background-color: rgba(255,255,255,.25)"><span id="roleScores"></span></span>
         </span>
     </div>
 
