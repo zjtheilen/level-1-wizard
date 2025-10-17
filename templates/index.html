@@ -8,13 +8,16 @@
             {{ character.race }} {{ character.char_class }} named {{ character.character_name.capitalize() }}.
         </h2>
     {% endif %}
-
     {% if error %}
-        {% include "partials/error.html" %}
+        <hr>
+        <div>
+            {% include "partials/error.html" %}
+        </div>
     {% endif %}
-
     <hr>
-    {% include "partials/form.html" %}
+    <div>
+        {% include "partials/form.html" %}
+    </div>
     <hr>
     <div class="output">
         {% include "partials/character.html" %}
