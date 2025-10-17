@@ -20,6 +20,15 @@ div {
     padding: 10px;
 }
 
+button {
+    background: linear-gradient(3deg, lightyellow, orange, darkorange, darkred);
+    border: none;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-family: "Papyrus";
+    font-size: x-large;
+}
+
 /* span {
     padding: 0 10px;
 } */
