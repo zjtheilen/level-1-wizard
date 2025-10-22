@@ -13,6 +13,11 @@ class CharacterClass:
 class CharacterRace:
     def __init__(self, name):
         self.name = name
+        self.size = "Unknown"
+        self.speed = "Unknown"
+        self.ability_bonuses = []
+        self.languages = []
+        self.abilities = {}
         # later, add resistances, languages, etc.
 
     def __str__(self):

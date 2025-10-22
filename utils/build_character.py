@@ -9,9 +9,9 @@ def build_character(player_name, character_name, race_name, class_name, backgrou
     race = CharacterRace(race_name)
     if race_data:
         race.size = race_data.get("size", "Unknown")
-        race.speed  = race_data.get("speed ", "Unknown")
-        race.ability_bonuses  = race_data.get("ability_bonuses ", [])
-        race.languages  = race_data.get("languages ", [])
+        race.speed  = race_data.get("speed", "Unknown")
+        race.ability_bonuses  = race_data.get("ability_bonuses", [])
+        race.languages  = race_data.get("languages", [])
         race.abilities = {
             ab["ability_score"]["name"]: ab["bonus"]
             for ab in race.ability_bonuses
