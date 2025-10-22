@@ -1,5 +1,5 @@
 function rollAbilities() {
-    let final_scores = []
+    const rolls = [];
     for (let i = 0; i < 7; i++) {
         let results = [];
         let topThreeSum = 0;
@@ -11,11 +11,22 @@ function rollAbilities() {
             const sorted = [...results].sort((a, b) => b - a);
             topThreeSum = sorted.slice(0, 3).reduce((a, b) => a + b, 0);
         } while (topThreeSum < 8);
-        final_scores.push(topThreeSum)
+        rolls.push(topThreeSum)
     }
-    const smallestIndex = final_scores.indexOf(Math.min(...final_scores));
+    const smallestIndex = rolls.indexOf(Math.min(...rolls));
     if (smallestIndex !== -1) {
-        final_scores.splice(smallestIndex, 1);
+        rolls.splice(smallestIndex, 1);
     }
-    document.getElementById("roleScores").innerText = final_scores
+    document.getElementById("roleScores").innerText = rolls
+
+    const abilitySelects = document.querySelectorAll(".stat-assigner select");
+    abilitySelects.forEach(select => {
+        rolls.forEach((r, idx)=> {
+            const opt = document.createElement("option");
+            opt.value = r;
+            opt.innerText = r;
+            select.appendChild(opt)
+        });
+    });
+    window.rolledAbilities = rolls;
 }
