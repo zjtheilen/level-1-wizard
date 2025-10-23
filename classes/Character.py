@@ -85,3 +85,7 @@ class Character:
 
     @property
     def cha(self): return self.ability_scores['cha']
+
+    def apply_base_scores(self, base_scores: dict):
+        for stat, val in base_scores.items():
+            self.ability_scores[stat] = self.ability_scores.get(stat, 0) + val
