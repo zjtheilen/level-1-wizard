@@ -17,10 +17,13 @@ def build_character(player_name, character_name, race_name, class_name, backgrou
 def build_race_object(race_name, race_data):
     race = CharacterRace(race_name)
     if race_data:
+        race.name = race_data.get("name")
         race.size = race_data.get("size")
+        race.size_description = race_data.get("size_description")
         race.speed  = race_data.get("speed")
         race.ability_bonuses  = race_data.get("ability_bonuses")
         race.languages  = race_data.get("languages")
+        race.language_desc  = race_data.get("language_desc")
         race.age = race_data.get("age")
         race.alignment = race_data.get("alignment")
         race.size = race_data.get("size")
@@ -29,6 +32,7 @@ def build_race_object(race_name, race_data):
         race.language_desc = race_data.get("language_desc")
         race.traits = race_data.get("traits")
         race.subraces = race_data.get("subraces")
+    return race
 
 def build_char_class_object(class_name, class_data):
     char_class = CharacterClass(class_name)
@@ -42,6 +46,7 @@ def build_char_class_object(class_name, class_data):
         char_class.subclasses = class_data.get("subclasses")
         char_class.spellcasting = class_data.get("spellcasting")
         char_class.subclasses = class_data.get("spells")
+    return char_class
 
 def build_background_object(background_name, background_data):
     char_background = CharacterBackground(background_name)
@@ -58,3 +63,4 @@ def build_background_object(background_name, background_data):
         char_background.starting_equipment_options = background_data.get('starting_equipment_options')
         char_background.feature = background_data.get("feature")
         char_background.personality_traits = background_data.get("personality_traits")
+    return char_background        

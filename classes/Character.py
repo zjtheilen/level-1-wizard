@@ -50,15 +50,15 @@ class Character:
         self.char_class: CharacterClass = char_class
         self.background: CharacterBackground = background
         self.ability_scores = {
-            'STR': 0,
-            'DEX': 0,
-            'CON': 0,
-            'INT': 0,
-            'WIS': 0,
-            'CHA': 0
+            'str': 0,
+            'dex': 0,
+            'con': 0,
+            'int': 0,
+            'wis': 0,
+            'cha': 0
         }
-        for each in race.abilities:
-            self.ability_scores[each] += race.abilities[each]
+        for each in self.race.ability_bonuses:
+            self.ability_scores[each['ability_score']['index']] += each['bonus']
 
     def __str__(self):
         parts = [self.character_name]
@@ -72,19 +72,19 @@ class Character:
         return f"Character({self.character_name}, {self.char_class})"
     
     @property
-    def str(self): return self.ability_scores['STR']
+    def str(self): return self.ability_scores['str']
 
     @property
-    def dex(self): return self.ability_scores['DEX']
+    def dex(self): return self.ability_scores['dex']
 
     @property
-    def con(self): return self.ability_scores['CON']
+    def con(self): return self.ability_scores['con']
 
     @property
-    def int(self): return self.ability_scores['INT']
+    def int(self): return self.ability_scores['int']
 
     @property
-    def wis(self): return self.ability_scores['WIS']
+    def wis(self): return self.ability_scores['wis']
 
     @property
-    def cha(self): return self.ability_scores['CHA']
+    def cha(self): return self.ability_scores['cha']
