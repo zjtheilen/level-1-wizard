@@ -18,7 +18,6 @@ def build_race_object(race_name, race_data):
     race = CharacterRace(race_name)
     if race_data:
         race.age = race_data.get("age")
-        race.name = race_data.get("name")
         race.size = race_data.get("size")
         race.speed  = race_data.get("speed")
         race.traits = race_data.get("traits")
@@ -34,8 +33,8 @@ def build_race_object(race_name, race_data):
 def build_char_class_object(class_name, class_data):
     char_class = CharacterClass(class_name)
     if class_data:
+        char_class.spells = class_data.get("spells")
         char_class.hit_die = class_data.get("hit_die")
-        char_class.subclasses = class_data.get("spells")
         char_class.subclasses = class_data.get("subclasses")
         char_class.spellcasting = class_data.get("spellcasting")
         char_class.proficiencies = class_data.get("proficiencies")
