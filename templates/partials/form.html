@@ -1,5 +1,5 @@
 <form action="/" method="POST">
-    <div>
+    <div> <!-- player / character name -->
         <span>
             <label for="player_name">Player name:</label>
             <input type="text" id="player_name" name="player_name" required>            
@@ -9,7 +9,7 @@
             <input type="text" id="character_name" name="character_name" required>
         </span>
     <div>
-    <div>
+    <div> <!-- race / class / background -->
         <span>
             <select name="race" id="race" required>
                 <option value="" disabled selected>Select Race</option>
@@ -36,7 +36,7 @@
         </span>
     </div>
 
-    <div>
+    <div> <!-- dice roller / assigner name -->
         <span class="dice-roller">
             <button type="button" onclick="rollAbilities()">Roll Ability Scores</button>
             <br>
@@ -45,32 +45,32 @@
         <br>
 
         <span class="stat-assigner">
-            <label for="strength">Strength:</label>
+            <label for="strength">STR:</label>
             <select name="strength" id="strength">
             </select>
         </span>
         <span class="stat-assigner">
-            <label for="dexterity">Dexterity:</label>
+            <label for="dexterity">DEX:</label>
             <select name="dexterity" id="Dexterity">
             </select>
         </span>
         <span class="stat-assigner">
-            <label for="constitution">Constitution:</label>
+            <label for="constitution">CON:</label>
             <select name="constitution" id="constitution">
             </select>
         </span>
         <span class="stat-assigner">
-            <label for="intelligence">Intelligence:</label>
+            <label for="intelligence">INT:</label>
             <select name="intelligence" id="intelligence">
             </select>
         </span>
         <span class="stat-assigner">
-            <label for="wisdom">Wisdom:</label>
+            <label for="wisdom">WIS:</label>
             <select name="wisdom" id="wisdom">
             </select>
         </span>
         <span class="stat-assigner">
-            <label for="charisma">Charisma:</label>
+            <label for="charisma">CHA:</label>
             <select name="charisma" id="charisma">
             </select>
         </span>
@@ -78,7 +78,7 @@
 
     </div>
 
-    <div>
+    <div> <!-- form submit  -->
         <button type="submit">Create Character</button>
     </div>
 </form>

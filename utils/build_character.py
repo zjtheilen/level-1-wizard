@@ -1,6 +1,7 @@
 from classes.Character import Character, CharacterClass, CharacterRace, CharacterBackground
 from utils.fetch import get_class_data, get_race_data, get_background_data
 
+# take all objects from below and create a character object
 def build_character(player_name, character_name, race_name, class_name, background_name):
     race_data = get_race_data(race_name)
     class_data = get_class_data(class_name)
@@ -14,6 +15,7 @@ def build_character(player_name, character_name, race_name, class_name, backgrou
         background=build_background_object(background_name, background_data)
     )    
 
+# establish race with race object
 def build_race_object(race_name, race_data):
     race = CharacterRace(race_name)
     if race_data:
@@ -30,6 +32,7 @@ def build_race_object(race_name, race_data):
         race.starting_proficiencies = race_data.get("starting_proficiencies")
     return race
 
+# establish char_class with char_class object
 def build_char_class_object(class_name, class_data):
     char_class = CharacterClass(class_name)
     if class_data:
@@ -44,6 +47,7 @@ def build_char_class_object(class_name, class_data):
         char_class.starting_equipment_options = class_data.get("starting_equipment_options")
     return char_class
 
+# establish background with background object
 def build_background_object(background_name, background_data):
     char_background = CharacterBackground(background_name)
     if background_data:
