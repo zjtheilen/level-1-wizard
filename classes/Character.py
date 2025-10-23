@@ -13,12 +13,6 @@ class CharacterClass:
 class CharacterRace:
     def __init__(self, name):
         self.name = name
-        self.size = "Unknown"
-        self.speed = "Unknown"
-        self.ability_bonuses = []
-        self.languages = []
-        self.abilities = {}
-        # later, add resistances, languages, etc.
 
     def __str__(self):
         return self.name
@@ -49,6 +43,9 @@ class Character:
         self.race: CharacterRace = race
         self.char_class: CharacterClass = char_class
         self.background: CharacterBackground = background
+        self.speed = self.race.speed
+        self.size = self.race.size
+        self.languages = self.race.languages
         self.ability_scores = {
             'str': 0,
             'dex': 0,
