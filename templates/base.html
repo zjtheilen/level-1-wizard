@@ -9,7 +9,15 @@
 </head>
 <body>
     <header>
-        <h1 id="page-title">Level 1 Character Wizard</h1>
+        
+        <div id="page-title">
+            <span>
+                <img src="{{ url_for('static', filename='images/ampersand_logo.png') }}" class="dnd-logo" alt="DnD logo">
+            </span>
+            <span>
+                <h1>Level 1 Character Wizard</h1>
+            </span>
+        </div>
     </header>
     <main>
         {% block content %}{% endblock %}
