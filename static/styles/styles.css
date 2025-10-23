@@ -56,7 +56,7 @@ button.animate:hover::before {
   left: 100%;
 }
 
-.dnd-logo {
+.personal-links {
     position: absolute;
     left: 5rem;
 
