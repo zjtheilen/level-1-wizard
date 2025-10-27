@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, request, session, redirect, url_for, render_template
 from utils.fetch import races, classes, backgrounds
 from utils.build_character import build_character
+from classes.Character import Character, CharacterClass, CharacterRace, CharacterBackground
 
 app = Flask(__name__)
+app.secret_key = 'sk8board1979'
 
 @app.route("/", methods=["GET", "POST"])
 def home():
@@ -24,14 +26,11 @@ def home():
         }
 
         if not all([race_name, class_name, player_name, character_name, background_name]):
-            return render_template("index.html",
-                                   races=races,
-                                   classes=classes,
-                                   backgrounds=backgrounds,
-                                   character=None,
-                                   error="Must complete all fields before moving on.")
+            session["error"] = "Must complete all fields before continuing."
+            return redirect(url_for("home"))
 
         character = build_character(player_name, character_name, race_name, class_name, background_name)
+
         # character.ability_scores.update(ability_scores)
         for stat, value in ability_scores.items():
             if stat in character.ability_scores:
@@ -42,6 +41,7 @@ def home():
         return render_template("index.html", races=races, classes=classes, backgrounds=backgrounds, character=character)
         
     return render_template("index.html", races=races, classes=classes, backgrounds=backgrounds, character=None)
+
 
 if __name__ == "__main__":
     app.run()

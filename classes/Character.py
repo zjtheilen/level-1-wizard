@@ -14,11 +14,11 @@ class CharacterRace:
     def __init__(self, name):
         self.name = name
 
-    def __str__(self):
-        return self.name
+    # def __str__(self):
+    #     return self.name
 
-    def __repr__(self):
-        return f"CharacterRace({self.name})"
+    # def __repr__(self):
+    #     return f"CharacterRace({self.name})"
 
 
 class CharacterBackground:
@@ -26,11 +26,11 @@ class CharacterBackground:
         self.name = name
         # later, add bonuses, etc.
 
-    def __str__(self):
-        return self.name
+    # def __str__(self):
+    #     return self.name
 
-    def __repr__(self):
-        return f"CharacterBackground({self.name})"
+    # def __repr__(self):
+    #     return f"CharacterBackground({self.name})"
 
 
 class Character:
@@ -54,19 +54,21 @@ class Character:
             'wis': 0,
             'cha': 0
         }
+
         for each in self.race.ability_bonuses:
             self.ability_scores[each['ability_score']['index']] += each['bonus']
 
-    def __str__(self):
-        parts = [self.character_name]
-        if self.char_class:
-            parts.append(f"the {self.char_class}")
-        if self.race:
-            parts.append(f"({self.race})")
-        return " ".join(parts)
 
-    def __repr__(self):
-        return f"Character({self.character_name}, {self.char_class})"
+    # def __str__(self):
+    #     parts = [self.character_name]
+    #     if self.char_class:
+    #         parts.append(f"the {self.char_class}")
+    #     if self.race:
+    #         parts.append(f"({self.race})")
+    #     return " ".join(parts)
+
+    # def __repr__(self):
+    #     return f"Character({self.character_name}, {self.char_class})"
     
     @property
     def str(self): return self.ability_scores['str']
