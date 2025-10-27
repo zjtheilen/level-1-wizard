@@ -7,9 +7,6 @@ def build_character(player_name, character_name, race_name, class_name, backgrou
     race_data = get_race_data(race_name)
     class_data = get_class_data(class_name)
     background_data = get_background_data(background_name)
-
-
-
     return Character(
         player_name=player_name,
         character_name=character_name,
