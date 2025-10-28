@@ -3,37 +3,20 @@
 {% if character %}
 <div class="shadow">
     <div class="character-summary ripped-edges", id="character-summary", style="height: 60rem; width: 50rem;">
-        <h2>
+        <h1>
             {{ character.player_name.capitalize() }} is playing a 
             {{ character.race }} {{ character.char_class }} named {{ character.character_name.capitalize() }}.
+        </h1>
+        <h2>
+            <p><strong><span class="emojis">⚔️</span> STR: </strong> {{ character.str }} ({{ character.str_mod}})</p>
+            <p><strong><span class="emojis">🏹</span> DEX: </strong> {{ character.dex }} ({{ character.dex_mod}})</p>
+            <p><strong><span class="emojis">🛡️</span> CON: </strong> {{ character.con }} ({{ character.con_mod}})</p>
+            <p><strong><span class="emojis">🔮</span> WIS: </strong> {{ character.wis }} ({{ character.wis_mod}})</p>
+            <p><strong><span class="emojis">📜</span> INT: </strong> {{ character.int }} ({{ character.int_mod}})</p>
+            <p><strong><span class="emojis">👑</span> CHA: </strong> {{ character.cha }} ({{ character.cha_mod}})</p>
         </h2>
-        <!-- <ul>
-            {% for stat, value in character.ability_scores.items() %}
-                <li>{{ stat.upper() }}: {{ value }}</li>
-            {% endfor %}
-        </ul> -->
-        <p>
-            <span>
-                <strong>Strength: </strong> {{ character.str }} ({{ character.str_mod}})
-            </span>
-            <span>
-                <strong>Dexterity: </strong> {{ character.dex }} ({{ character.dex_mod}})
-            </span>
-            <span>
-                <strong>Constitution: </strong> {{ character.con }} ({{ character.con_mod}})
-            </span>
-            <span>
-                <strong>Wisdom: </strong> {{ character.wis }} ({{ character.wis_mod}})
-            </span>
-            <span>
-                <strong>Intelligence: </strong> {{ character.int }} ({{ character.int_mod}})
-            </span>
-            <span>
-                <strong>Charisma: </strong> {{ character.cha }} ({{ character.cha_mod}})
-            </span>
-        </p>
         <hr>
-        <p>
+        <h2>
             <span>
                 <strong>Speed:</strong> {{ character.speed }}
             </span>
@@ -41,7 +24,7 @@
                 <strong>Size:</strong> {{ character.size }}
             </span>
             
-        </p>
+        </h2>
     </div>
 </div>
 {% endif %}
