@@ -118,10 +118,3 @@ class Character:
             for stat, score in self.ability_scores.items()
         }
 
-# def ability_modifier(score):
-#     print(f"Calculating ability modifier score:")
-#     print(1000, score)
-#     print(2000, score - 10)
-#     print(3000, (score - 10) // 2)
-#     return (score - 10) // 2
-

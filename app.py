@@ -5,7 +5,6 @@ from flask import Flask, render_template
 from flask_assets import Environment, Bundle
 
 app = Flask(__name__)
-# app.secret_key = 'sk8board1979'
 
 # Initialize Flask-Assets
 assets = Environment(app)
@@ -20,6 +19,10 @@ scss = Bundle(
 
 assets.register('scss_all', scss)
 scss.build()  # build on startup (optional)
+
+@app.route("/reset", methods=["POST"])
+def reset_character():
+    return redirect(url_for("home"))
 
 @app.route("/", methods=["GET", "POST"])
 def home():

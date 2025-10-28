@@ -8,7 +8,6 @@ $transparent-white: rgba(255,255,255,0.3);
 $ink-brown: rgb(45,20,20);
 $shadow: -1px 6px 3px rgba(0,0,0,0.5);
 
-// Optional: expose CSS variables
 :root {
   --blood-red: #{$blood-red};
   --transparent-blood: #{$transparent-blood};
@@ -83,7 +82,6 @@ input, select, .white-box {
   background-image: url(/static/images/bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
 }
 
 // ========================

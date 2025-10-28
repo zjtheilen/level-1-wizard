@@ -6,6 +6,26 @@
   --ink-brown: #2d1414;
   --shadow: -1px 6px 3px rgba(0, 0, 0, 0.5); }
 
+.faded {
+  position: relative;
+  display: inline-block;
+  color: black; }
+  .faded:after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-collapse: separate; }
+  .faded.faded-bottom:after {
+    box-shadow: inset 0 -40px 40px -16px; }
+  .faded.faded-narrow.faded-bottom:after {
+    box-shadow: inset 0 -20px 20px -10px; }
+  .faded.faded-wide.faded-bottom:after {
+    box-shadow: inset 0 -80px 80px -28px; }
+
 *,
 *::before,
 *::after {
@@ -38,7 +58,7 @@ input, select, .white-box {
   background-image: url(/static/images/bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center; }
+}
 
 button.animate {
   background-color: darkred;
