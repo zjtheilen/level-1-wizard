@@ -1,40 +1,66 @@
-* {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: none;
-    margin: auto;
+:root {
+    --blood-red: rgb(139,0,0);
+    --transparent-blood: rgba(139,0,0,.5);
+    --parchment: antiquewhite;
+    --transparent-white: rgba(255, 255, 255, 0.3);
+    --ink-brown: rgb(45,20,20);
+     --shadow: -1px 6px 3px rgba(0, 0, 0, 0.5);
 }
 
-html {
-    background-image: url(/static/images/bg.jpg);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
-    width: 1000px;
+    width: fit-content;
     max-width: 90%;
     text-align: center;
-    margin-top: 20px !important;
-}
-
-h1, h2, h3, h4, h5, label, input, select, button, body {
+    margin: 40px auto !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 2px;
-    margin: 2px auto;
 }
 
-input, select, body {
-    background-color: rgba(255,255,255,.25);
+h1, h2, h3, h4, h5 {
+    margin: 0.5rem 0;
+    padding: 0;
 }
 
-div {
+label, input, select, button {
+    margin: 0.25rem;
+    padding: 0.25rem;
+}
+
+input, select, .white-box {
+    background-color: var(--transparent-white);
+    border-radius: 5px;
+}
+
+/* div {
+    padding: 10px;
+} */
+
+.white-box, .output, .character-summary {
     padding: 10px;
 }
 
+.image-container {
+    background-image: url(/static/images/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 button.animate {
-    background-color: rgb(139,0,0);
+    background-color: var(--blood-red);
     position: relative;
     overflow: hidden;
-    color: antiquewhite;
+    color: var(--parchment);
     font-size: 1.2rem;
     padding: 0 .5rem;
+    border-radius: 5px;
+    border: none;
 }
 
 button.animate::before {
@@ -44,7 +70,7 @@ button.animate::before {
   left: -100%;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: var(--transparent-white);
   transform: skewX(-45deg);
   transition: all 0.5s ease;
 }
@@ -55,21 +81,21 @@ button.animate:hover::before {
 
 hr {
     width: 100%;
-    border: solid rgb(139,0,0) 1px;
+    border: solid var(--blood-red) 1px;
     margin: 1rem 0;
 }
 
 .personal-links {
     position: absolute;
     left: 5rem;
+}
 
-    img {
-        width: 48px;
-    }
+.personal-links img {
+    width: 48px;
 }
 
 .emojis {
-    background-color: rgba(139,0,0,.5);
+    background-color: var(--transparent-blood);
     border-radius: 5px;
 }
 
@@ -82,11 +108,11 @@ hr {
     background-size: cover;
     text-align: start;
     padding: 1.5rem;
-    color: rgb(45,20,20);
+    color: var(--ink-brown);
 }
 
 .shadow {
-    filter: drop-shadow(-1px 6px 3px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(var(--shadow));
 }
 
 .ripped-edges {
