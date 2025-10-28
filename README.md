@@ -1,5 +1,6 @@
 # level-1-wizard
 
+## Windows:
 1. Clone repo
     `git clone https://github.com/zjtheilen/level-1-wizard.git`
 
