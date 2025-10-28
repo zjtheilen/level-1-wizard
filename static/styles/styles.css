@@ -29,10 +29,10 @@ div {
 }
 
 button.animate {
-    background-color: #8D7B5A;
+    background-color: darkred;
     position: relative;
     overflow: hidden;
-    color: white;
+    color: antiquewhite;
     font-size: 1.2rem;
     padding: 0 .5rem;
 }
@@ -71,6 +71,7 @@ button.animate:hover::before {
     background-size: cover;
     text-align: start;
     padding: 1.5rem;
+    color: rgb(45,20,20);
 }
 
 .shadow {
@@ -160,4 +161,6 @@ button.animate:hover::before {
             2.5% 8.6%,
             1.1% 5.5%
         );
+    padding: 2rem 3rem;
+    filter: brightness(1.25);
 }
