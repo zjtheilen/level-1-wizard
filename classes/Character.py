@@ -91,3 +91,37 @@ class Character:
     def apply_base_scores(self, base_scores: dict):
         for stat, val in base_scores.items():
             self.ability_scores[stat] = self.ability_scores.get(stat, 0) + val
+
+
+    @property
+    def str_mod(self): return self.ability_modifiers['str']
+
+    @property
+    def dex_mod(self): return self.ability_modifiers['dex']
+
+    @property
+    def con_mod(self): return self.ability_modifiers['con']
+
+    @property
+    def int_mod(self): return self.ability_modifiers['int']
+
+    @property
+    def wis_mod(self): return self.ability_modifiers['wis']
+
+    @property
+    def cha_mod(self): return self.ability_modifiers['cha']
+
+    @property
+    def ability_modifiers(self):
+        return {
+            stat: (score - 10) // 2
+            for stat, score in self.ability_scores.items()
+        }
+
+# def ability_modifier(score):
+#     print(f"Calculating ability modifier score:")
+#     print(1000, score)
+#     print(2000, score - 10)
+#     print(3000, (score - 10) // 2)
+#     return (score - 10) // 2
+

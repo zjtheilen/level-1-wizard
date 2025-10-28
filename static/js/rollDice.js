@@ -26,45 +26,57 @@ function rollAbilities() {
 // creates 6 dropdowns (1 for each stat) that lists the roll values
 function assignAbilities(rolls) {
     const abilitySelects = document.querySelectorAll(".stat-assigner select");
+    const available = [...rolls]; // one shared pool of values
 
-    // Store remaining available rolls
-    let available = [...rolls];
-
+    // Remove all existing options & listeners cleanly
     abilitySelects.forEach(select => {
-        populateSelect(select, available);
+        // Clear previous options
+        select.innerHTML = "";
+        // Reset any previous state
+        select.dataset.prevValue = "";
+    });
 
-        select.addEventListener("change", (e) => {
+    // Helper to rebuild all dropdowns based on current available values
+    function refreshDropdowns() {
+        abilitySelects.forEach(select => {
+            const current = select.value ? Number(select.value) : null;
+            populateSelect(select, available.concat(current || []), current);
+        });
+    }
+
+    // Initialize dropdowns
+    refreshDropdowns();
+
+    // Add shared event listeners (that all use the same `available` array)
+    abilitySelects.forEach(select => {
+        // Remove previous listener if re-rolling (clean binding)
+        select.onchange = (e) => {
             const prevValue = select.dataset.prevValue ? Number(select.dataset.prevValue) : null;
             const selected = e.target.value ? Number(e.target.value) : null;
 
-            // Restore previous value (if any)
-            if (prevValue) {
+            // Restore previously selected value
+            if (prevValue !== null) {
                 available.push(prevValue);
             }
 
-            // Remove only ONE instance of selected value
-            if (selected) {
+            // Remove one instance of the newly selected value
+            if (selected !== null) {
                 const idx = available.indexOf(selected);
                 if (idx !== -1) available.splice(idx, 1);
             }
 
+            // Update stored value
             select.dataset.prevValue = selected || "";
 
-            // Repopulate other selects
-            abilitySelects.forEach(other => {
-                if (other !== select) {
-                    const current = other.value ? Number(other.value) : null;
-                    populateSelect(other, available.concat(current || []), current);
-                }
-            });
-        });
+            // Refresh dropdowns to reflect updated pool
+            refreshDropdowns();
+        };
     });
 }
 
 
 function populateSelect(select, availableValues, currentValue) {
     select.innerHTML = '<option value="">Select value</option>';
-    // Clone so sort doesn’t mutate shared array
     [...availableValues].sort((a, b) => b - a).forEach(v => {
         const opt = document.createElement("option");
         opt.value = v;

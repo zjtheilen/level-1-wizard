@@ -7,13 +7,41 @@
             {{ character.player_name.capitalize() }} is playing a 
             {{ character.race }} {{ character.char_class }} named {{ character.character_name.capitalize() }}.
         </h2>
-        <ul>
+        <!-- <ul>
             {% for stat, value in character.ability_scores.items() %}
                 <li>{{ stat.upper() }}: {{ value }}</li>
             {% endfor %}
-        </ul>
+        </ul> -->
+        <p>
+            <span>
+                <strong>Strength: </strong> {{ character.str }} ({{ character.str_mod}})
+            </span>
+            <span>
+                <strong>Dexterity: </strong> {{ character.dex }} ({{ character.dex_mod}})
+            </span>
+            <span>
+                <strong>Constitution: </strong> {{ character.con }} ({{ character.con_mod}})
+            </span>
+            <span>
+                <strong>Wisdom: </strong> {{ character.wis }} ({{ character.wis_mod}})
+            </span>
+            <span>
+                <strong>Intelligence: </strong> {{ character.int }} ({{ character.int_mod}})
+            </span>
+            <span>
+                <strong>Charisma: </strong> {{ character.cha }} ({{ character.cha_mod}})
+            </span>
+        </p>
         <hr>
-        <p><strong>Speed:</strong> {{ character.speed }}</p>
+        <p>
+            <span>
+                <strong>Speed:</strong> {{ character.speed }}
+            </span>
+            <span>
+                <strong>Size:</strong> {{ character.size }}
+            </span>
+            
+        </p>
     </div>
 </div>
 {% endif %}
