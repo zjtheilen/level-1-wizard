@@ -1,4 +1,3 @@
-import json
 from classes.Character import Character, CharacterClass, CharacterRace, CharacterBackground
 from utils.fetch import get_class_data, get_race_data, get_background_data
 

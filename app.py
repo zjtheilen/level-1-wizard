@@ -1,10 +1,25 @@
 from flask import Flask, request, session, redirect, url_for, render_template
 from utils.fetch import races, classes, backgrounds
 from utils.build_character import build_character
-from classes.Character import Character, CharacterClass, CharacterRace, CharacterBackground
+from flask import Flask, render_template
+from flask_assets import Environment, Bundle
 
 app = Flask(__name__)
-app.secret_key = 'sk8board1979'
+# app.secret_key = 'sk8board1979'
+
+# Initialize Flask-Assets
+assets = Environment(app)
+
+# Define SCSS bundle
+scss = Bundle(
+    'scss/styles.scss',           # input
+    filters='libsass',            # compile SCSS -> CSS
+    output='css/styles.css',      # output
+    depends='scss/**/*.scss'      # optional: watch all SCSS files
+)
+
+assets.register('scss_all', scss)
+scss.build()  # build on startup (optional)
 
 @app.route("/", methods=["GET", "POST"])
 def home():
