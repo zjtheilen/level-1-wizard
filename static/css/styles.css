@@ -34,9 +34,10 @@ input {
   display: inline-block;
   box-sizing: border-box; }
 
-input, select, .white-box {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 5px; }
+input, select, .white-box, .form-control {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+  border-radius: 5px !important;
+  border: none !important; }
 
 .white-box, .output, .character-summary {
   padding: 10px; }
@@ -47,7 +48,7 @@ input, select, .white-box {
   background-size: cover; }
 
 button.animate {
-  background-color: darkred;
+  background-color: darkred !important;
   color: antiquewhite;
   position: relative;
   overflow: hidden;
@@ -79,7 +80,6 @@ hr {
   align-items: center;
   gap: 0.75rem;
   position: fixed;
-  top: 50%;
   left: 1rem;
   transform: translateY(-50%);
   z-index: 1000; }
@@ -99,6 +99,11 @@ hr {
 .dice-roller {
   display: block;
   text-align: center; }
+
+.stat-assigner {
+  width: 33%; }
+  .stat-assigner select {
+    width: 66%; }
 
 .character-summary {
   background-image: url(/static/images/character-bg.jpg);

@@ -74,9 +74,10 @@ input {
   box-sizing: border-box;
 }
 
-input, select, .white-box {
-  background-color: $transparent-white;
-  border-radius: 5px;
+input, select, .white-box, .form-control {
+  background-color: $transparent-white !important;
+  border-radius: 5px !important;
+  border: none !important;
 }
 
 .white-box, .output, .character-summary {
@@ -96,7 +97,7 @@ input, select, .white-box {
 // Buttons
 // ========================
 button.animate {
-  background-color: $blood-red;
+  background-color: $blood-red !important;
   color: $parchment;
   position: relative;
   overflow: hidden;
@@ -123,7 +124,6 @@ hr {
   align-items: center;
   gap: 0.75rem;
   position: fixed;
-  top: 50%;
   left: 1rem;
   transform: translateY(-50%);
   z-index: 1000;
@@ -151,6 +151,14 @@ hr {
 .dice-roller {
   display: block;
   text-align: center;
+}
+
+.stat-assigner {
+  width: 33%;
+
+  select {
+    width: 66%;
+  }
 }
 
 .character-summary {
