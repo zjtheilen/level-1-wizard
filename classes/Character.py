@@ -1,3 +1,5 @@
+from utils.fetch import skills
+
 class CharacterClass:
     def __init__(self, name):
         self.name = name
@@ -58,6 +60,11 @@ class Character:
         for each in self.race.ability_bonuses:
             self.ability_scores[each['ability_score']['index']] += each['bonus']
 
+        # Initialize skills dynamically as None (or False)
+        for skill in skills:
+            # convert spaces / hyphens to underscores
+            attr_name = skill.lower().replace(" ", "_").replace("-", "_")
+            setattr(self, attr_name, None)
 
     def __str__(self):
         parts = [self.character_name]

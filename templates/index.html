@@ -2,15 +2,24 @@
 {% block title %}Character Creator{% endblock %}
 
 {% block content %}
+<div class="container-fluid">
     {% if error %}
-        <div>
-            {% include "partials/error.html" %}
+        <div class="row mb-3">
+            <div class="col-12 text-center">
+                {% include "partials/error.html" %}
+            </div>
         </div>
     {% endif %}
-    <div>
-        {% include "partials/form.html" %}
+
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            {% include "partials/form.html" %}
+        </div>
+        <div class="col-lg-6">
+            <div class="output">
+                {% include "partials/character.html" %}
+            </div>
+        </div>
     </div>
-    <div class="output">
-        {% include "partials/character.html" %}
-    </div>
+</div>
 {% endblock %}

@@ -1,39 +1,40 @@
-<form action="/" method="POST">
-    <div> <!-- player / character name -->
-        <span>
-            <label for="player_name">Player name:</label>
-            <input type="text" id="player_name" name="player_name" required>            
-        </span>
-        <span>
-            <label for="character_name">Character name:</label>
-            <input type="text" id="character_name" name="character_name" required>
-        </span>
-    <div>
-    <div> <!-- race / class / background -->
-        <span>
-            <select name="race" id="race" required>
+<form action="/" method="POST" class="mb-3">
+    <div class="mb-3 row g-3"> <!-- player / character name -->
+        <div class="col-md-6">
+            <label for="player_name" class="form-label">Player name:</label>
+            <input type="text" id="player_name" name="player_name" class="form-control" required>            
+        </div>
+        <div class="col-md-6">
+            <label for="character_name" class="form-label">Character name:</label>
+            <input type="text" id="character_name" name="character_name" class="form-control" required>
+        </div>
+    </div>
+
+    <div class="mb-3 row g-3"> <!-- race / class / background -->
+        <div class="col-md-4">
+            <select name="race" id="race" class="form-select" required>
                 <option value="" disabled selected>Select Race</option>
                 {% for race in races %}
                     <option value="{{race.lower()}}">{{race.capitalize()}}</option>
                 {% endfor %}
             </select>
-        </span>
-        <span>
-            <select name="char_class" id="char_class" required>
+        </div>
+        <div class="col-md-4">
+            <select name="char_class" id="char_class" class="form-select" required>
                 <option value="" disabled selected>Select Class</option>
                 {% for char_class in classes %}
                     <option value="{{char_class.lower()}}">{{char_class.capitalize()}}</option>
                 {% endfor %}
             </select>
-        </span>
-        <span>
-            <select name="background_name" id="background_name" required>
+        </div>
+        <div class="col-md-4">
+            <select name="background_name" id="background_name" class="form-select" required>
                 <option value="" disabled selected>Select Background</option>
                 {% for background_name in backgrounds %}
                     <option value="{{background_name.lower()}}">{{background_name.capitalize()}}</option>
                 {% endfor %}
             </select> 
-        </span>
+        </div>
     </div>
 
     <div> <!-- dice roller / assigner -->
@@ -43,47 +44,48 @@
             <span id="roleScores"></span>
         </span>
         <br>
-
-        <span class="stat-assigner">
-            <label for="strength">STR:</label>
-            <select name="strength" id="strength">
-            </select>
-        </span>
-        <span class="stat-assigner">
-            <label for="dexterity">DEX:</label>
-            <select name="dexterity" id="Dexterity">
-            </select>
-        </span>
-        <span class="stat-assigner">
-            <label for="constitution">CON:</label>
-            <select name="constitution" id="constitution">
-            </select>
-        </span>
-        <span class="stat-assigner">
-            <label for="intelligence">INT:</label>
-            <select name="intelligence" id="intelligence">
-            </select>
-        </span>
-        <span class="stat-assigner">
-            <label for="wisdom">WIS:</label>
-            <select name="wisdom" id="wisdom">
-            </select>
-        </span>
-        <span class="stat-assigner">
-            <label for="charisma">CHA:</label>
-            <select name="charisma" id="charisma">
-            </select>
-        </span>
+        <div class="col-6">
+            <span class="stat-assigner">
+                <label for="strength">STR:</label>
+                <select name="strength" id="strength">
+                </select>
+            </span>
+            <span class="stat-assigner">
+                <label for="dexterity">DEX:</label>
+                <select name="dexterity" id="Dexterity">
+                </select>
+            </span>
+            <span class="stat-assigner">
+                <label for="constitution">CON:</label>
+                <select name="constitution" id="constitution">
+                </select>
+            </span>
+        </div>
+        <div class="col-6">
+            <span class="stat-assigner">
+                <label for="intelligence">INT:</label>
+                <select name="intelligence" id="intelligence">
+                </select>
+            </span>
+            <span class="stat-assigner">
+                <label for="wisdom">WIS:</label>
+                <select name="wisdom" id="wisdom">
+                </select>
+            </span>
+            <span class="stat-assigner">
+                <label for="charisma">CHA:</label>
+                <select name="charisma" id="charisma">
+                </select>
+            </span>
+        </div>
 
 
     </div>
 
-    <div> <!-- form submit  -->
-        <button class="animate" type="submit">Create Character</button>
+    <div class="text-center mt-3"> <!-- form submit  -->
+        <button class="animate btn btn-success me-2" type="submit">Create Character</button>
+        <form action="{{ url_for('reset_character') }}" method="POST" class="d-inline">
+            <button type="submit" class="animate btn btn-danger">Reset Character</button>
+        </form>
     </div>
 </form>
-
-<form action="{{ url_for('reset_character') }}" method="POST" style="display:inline;">
-    <button type="submit" class="animate">Reset Character</button>
-</form>
-

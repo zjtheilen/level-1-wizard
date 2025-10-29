@@ -36,3 +36,4 @@ def fetch_list_from_api(category):
 races = fetch_list_from_api("races")
 classes = fetch_list_from_api("classes")
 backgrounds = fetch_list_from_api("backgrounds")
+skills = fetch_list_from_api("skills")

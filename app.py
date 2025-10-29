@@ -1,5 +1,5 @@
 from flask import Flask, request, session, redirect, url_for, render_template
-from utils.fetch import races, classes, backgrounds
+from utils.fetch import races, classes, backgrounds, skills
 from utils.build_character import build_character
 from flask import Flask, render_template
 from flask_assets import Environment, Bundle
@@ -56,9 +56,9 @@ def home():
             else:
                 character.ability_scores[stat] += int(value)
         
-        return render_template("index.html", races=races, classes=classes, backgrounds=backgrounds, character=character)
+        return render_template("index.html", races=races, classes=classes, backgrounds=backgrounds, character=character, skills=sorted(skills))
         
-    return render_template("index.html", races=races, classes=classes, backgrounds=backgrounds, character=None)
+    return render_template("index.html", races=races, classes=classes, backgrounds=backgrounds, character=None, skills=sorted(skills))
 
 
 if __name__ == "__main__":
