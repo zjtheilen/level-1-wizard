@@ -36,7 +36,7 @@
             <div class="col-6 col-md-4 mb-2">
                 <p><strong>{{ skill }}:</strong> 
                     {% if character %}
-                        {{ character | attr(attr_name) }}
+                        {{ character.skills[attr_name]}}
                     {% endif %}
                 </p>
             </div>

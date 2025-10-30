@@ -48,6 +48,8 @@ def home():
             return redirect(url_for("home"))
 
         character = build_character(player_name, character_name, race_name, class_name, background_name)
+        character.apply_base_scores(ability_scores)
+        character.apply_base_skill_modifiers()
 
         # character.ability_scores.update(ability_scores)
         for stat, value in ability_scores.items():

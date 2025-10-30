@@ -35,6 +35,28 @@ class CharacterBackground:
         return f"CharacterBackground({self.name})"
 
 
+SKILL_STATS = {
+    "acrobatics": "dex",
+    "animal_handling": "wis",
+    "arcana": "int",
+    "athletics": "str",
+    "deception": "cha",
+    "history": "int",
+    "insight": "wis",
+    "intimidation": "cha",
+    "investigation": "int",
+    "medicine": "wis",
+    "nature": "int",
+    "perception": "wis",
+    "performance": "cha",
+    "persuasion": "cha",
+    "religion": "int",
+    "sleight_of_hand": "dex",
+    "stealth": "dex",
+    "survival": "wis",
+}
+
+
 class Character:
     def __init__(self, player_name: str, character_name: str, 
                  race: CharacterRace, 
@@ -56,16 +78,19 @@ class Character:
             'wis': 0,
             'cha': 0
         }
-
         for each in self.race.ability_bonuses:
             self.ability_scores[each['ability_score']['index']] += each['bonus']
+        
+        self.skills = {skill: self.ability_modifiers[SKILL_STATS[skill]] for skill in SKILL_STATS}
 
-        # Initialize skills dynamically as None (or False)
-        for skill in skills:
-            # convert spaces / hyphens to underscores
-            attr_name = skill.lower().replace(" ", "_").replace("-", "_")
-            setattr(self, attr_name, 0)
+    def apply_base_skill_modifiers(self):
+        for skill, stat in SKILL_STATS.items():
+            self.skills[skill] = self.ability_modifiers.get(stat, 0)
 
+    def apply_base_scores(self, base_scores: dict):
+        for stat, val in base_scores.items():
+            self.ability_scores[stat] = self.ability_scores.get(stat, 0) + int(val)
+    
     def __str__(self):
         parts = [self.character_name]
         if self.char_class:
@@ -94,11 +119,6 @@ class Character:
 
     @property
     def cha(self): return self.ability_scores['cha']
-
-    def apply_base_scores(self, base_scores: dict):
-        for stat, val in base_scores.items():
-            self.ability_scores[stat] = self.ability_scores.get(stat, 0) + val
-
 
     @property
     def str_mod(self): return self.ability_modifiers['str']
