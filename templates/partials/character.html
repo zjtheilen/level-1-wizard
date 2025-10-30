@@ -1,36 +1,44 @@
 <div class="p-4 rounded ripped-edges character-summary" id="character-summary">
     <h2 class="mb-3 text-center">
-        {{ character.player_name.capitalize() }} is playing a 
-        {{ character.race }} {{ character.char_class }} named {{ character.character_name.capitalize() }}.
+        {% if character %}
+            {{ character.player_name.capitalize() }} is playing a 
+            {{ character.race }} {{ character.char_class }} named {{ character.character_name.capitalize() }}.
+        {% else %}
+            Blank Character Sheet
+        {% endif %}
     </h2>
 
     <hr>
 
     <div class="row">
         <div class="col-md-6">
-            <p><strong>⚔️ STR:</strong> {{ character.str }} ({{ character.str_mod }})</p>
-            <p><strong>🏹 DEX:</strong> {{ character.dex }} ({{ character.dex_mod }})</p>
-            <p><strong>🛡️ CON:</strong> {{ character.con }} ({{ character.con_mod }})</p>
+            <p><strong>⚔️ STR:</strong> {{ character.str if character else "" }} {{ "(" ~ character.str_mod ~ ")" if character else "" }}</p>
+            <p><strong>🏹 DEX:</strong> {{ character.dex if character else "" }} {{ "(" ~ character.dex_mod ~ ")" if character else "" }}</p>
+            <p><strong>🛡️ CON:</strong> {{ character.con if character else "" }} {{ "(" ~ character.con_mod ~ ")" if character else "" }}</p>
         </div>
         <div class="col-md-6">
-            <p><strong>🔮 WIS:</strong> {{ character.wis }} ({{ character.wis_mod }})</p>
-            <p><strong>📜 INT:</strong> {{ character.int }} ({{ character.int_mod }})</p>
-            <p><strong>👑 CHA:</strong> {{ character.cha }} ({{ character.cha_mod }})</p>
+            <p><strong>🔮 WIS:</strong> {{ character.wis if character else "" }} {{ "(" ~ character.wis_mod ~ ")" if character else "" }}</p>
+            <p><strong>📜 INT:</strong> {{ character.int if character else "" }} {{ "(" ~ character.int_mod ~ ")" if character else "" }}</p>
+            <p><strong>👑 CHA:</strong> {{ character.cha if character else "" }} {{ "(" ~ character.cha_mod ~ ")" if character else "" }}</p>
         </div>
     </div>
 
     <hr>
 
     <div class="d-flex justify-content-around flex-wrap mb-3">
-        <span><strong>Speed:</strong> {{ character.speed }}</span>
-        <span><strong>Size:</strong> {{ character.size }}</span>
+        <span><strong>Speed:</strong> {{ character.speed if character else "" }}</span>
+        <span><strong>Size:</strong> {{ character.size if character else "" }}</span>
     </div>
 
     <div class="row">
         {% for skill in skills %}
             {% set attr_name = skill.lower().replace(" ", "_").replace("-", "_") %}
             <div class="col-6 col-md-4 mb-2">
-                <p><strong>{{ skill }}:</strong> {{ character | attr(attr_name) }}</p>
+                <p><strong>{{ skill }}:</strong> 
+                    {% if character %}
+                        {{ character | attr(attr_name) }}
+                    {% endif %}
+                </p>
             </div>
         {% endfor %}
     </div>
