@@ -1,9 +1,11 @@
 {% if character %}
-<div class="shadow p-4 rounded ripped-edges character-summary" id="character-summary">
+<div class="p-4 rounded ripped-edges character-summary" id="character-summary">
     <h2 class="mb-3 text-center">
         {{ character.player_name.capitalize() }} is playing a 
         {{ character.race }} {{ character.char_class }} named {{ character.character_name.capitalize() }}.
     </h2>
+
+    <hr>
 
     <div class="row">
         <div class="col-md-6">
@@ -30,6 +32,43 @@
             {% set attr_name = skill.lower().replace(" ", "_").replace("-", "_") %}
             <div class="col-6 col-md-4 mb-2">
                 <p><strong>{{ skill }}:</strong> {{ character | attr(attr_name) }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<div class="p-4 rounded ripped-edges character-summary" id="character-summary">
+    <h2 class="mb-3 text-center">
+        Blank Character Sheet
+    </h2>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p><strong>⚔️ STR:</strong></p>
+            <p><strong>🏹 DEX:</strong></p>
+            <p><strong>🛡️ CON:</strong></p>
+        </div>
+        <div class="col-md-6">
+            <p><strong>🔮 WIS:</strong></p>
+            <p><strong>📜 INT:</strong></p>
+            <p><strong>👑 CHA:</strong></p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="d-flex justify-content-around flex-wrap mb-3">
+        <span><strong>Speed:</strong></span>
+        <span><strong>Size:</strong></span>
+    </div>
+
+    <div class="row">
+        {% for skill in skills %}
+            {% set attr_name = skill.lower().replace(" ", "_").replace("-", "_") %}
+            <div class="col-6 col-md-4 mb-2">
+                <p><strong>{{ skill }}:</strong></p>
             </div>
         {% endfor %}
     </div>

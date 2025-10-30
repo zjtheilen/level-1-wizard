@@ -64,7 +64,7 @@ class Character:
         for skill in skills:
             # convert spaces / hyphens to underscores
             attr_name = skill.lower().replace(" ", "_").replace("-", "_")
-            setattr(self, attr_name, None)
+            setattr(self, attr_name, 0)
 
     def __str__(self):
         parts = [self.character_name]

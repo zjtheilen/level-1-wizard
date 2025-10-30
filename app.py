@@ -51,9 +51,7 @@ def home():
 
         # character.ability_scores.update(ability_scores)
         for stat, value in ability_scores.items():
-            if stat in character.ability_scores:
-                character.ability_scores[stat] += int(value)
-            else:
+            if value:
                 character.ability_scores[stat] += int(value)
         
         return render_template("index.html", races=races, classes=classes, backgrounds=backgrounds, character=character, skills=sorted(skills))

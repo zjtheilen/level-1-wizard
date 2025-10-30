@@ -91,6 +91,7 @@ input, select, .white-box, .form-control {
   background-image: url(/static/images/bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  width: 100vw;
 }
 
 // ========================
@@ -169,8 +170,8 @@ hr {
   color: $ink-brown;
 }
 
-.shadow {
-  filter: drop-shadow($shadow);
+.custom-shadow {
+  filter: drop-shadow($shadow) !important;
 }
 
 // ========================
