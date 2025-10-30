@@ -17,7 +17,11 @@
         </div>
         <div class="col-lg-6">
             <div class="output custom-shadow">
-                {% include "partials/character.html" %}
+                {% if character %}
+                    {% include "partials/character.html" %}
+                {% else %}
+                    {% include "partials/no-character.html" %}
+                {% endif %}
             </div>
         </div>
     </div>
