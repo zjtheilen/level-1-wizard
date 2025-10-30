@@ -2,8 +2,6 @@
 
 ## Tech Stack: HTML (Jinja2 templates), Python (Flask, Requests), SCSS (Flask-Assets), Bootstrap 5, JavaScript
 
-- Make sure you have Python3 installed. I use 3.11.0 in this repo
-
 ### Windows:
 1. Clone repo
     `git clone https://github.com/zjtheilen/level-1-wizard.git`
