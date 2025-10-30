@@ -59,7 +59,6 @@ function assignAbilities(rolls) {
     });
 }
 
-
 function populateSelect(select, availableValues, currentValue) {
     select.innerHTML = '<option value="">Select</option>';
     [...availableValues].sort((a, b) => b - a).forEach(v => {
