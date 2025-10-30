@@ -2,18 +2,8 @@ import requests
 
 API_BASE = "https://www.dnd5eapi.co/api/2014"
 
-def get_race_data(race_name):
-    url = f'{API_BASE}/races/{race_name.lower()}'
-    response = requests.get(url)
-    return response.json() if response.ok else None
-
-def get_class_data(class_name):
-    url = f'{API_BASE}/classes/{class_name.lower()}'
-    response = requests.get(url)
-    return response.json() if response.ok else None
-
-def get_background_data(background_name):
-    url = f'{API_BASE}/backgrounds/{background_name.lower()}'
+def get_data(category, name):
+    url = f'{API_BASE}/{category}/{name}'
     response = requests.get(url)
     return response.json() if response.ok else None
 
