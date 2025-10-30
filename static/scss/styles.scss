@@ -48,12 +48,12 @@ $shadow: -1px 6px 3px rgba(0,0,0,0.5);
 }
 
 body {
-  width: fit-content;
+  // width: fit-content;
   max-width: 90%;
   text-align: center;
   margin: 40px auto !important;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 2px;
+  // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  // padding: 2px;
 }
 
 h1, h2, h3, h4, h5 {
@@ -67,17 +67,26 @@ label, input, select, button {
 }
 
 button,
-select,
-input {
-  all: unset;
-  display: inline-block;
+input,
+select {
+  font-family: inherit;
+  font-size: inherit;
   box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+button {
+  cursor: pointer;
+}
+
+%frosted-box {
+  background-color: $transparent-white;
+  border-radius: 5px;
+  border: none;
 }
 
 input, select, .white-box, .form-control {
-  background-color: $transparent-white !important;
-  border-radius: 5px !important;
-  border: none !important;
+  @extend %frosted-box;
 }
 
 .white-box, .output, .character-summary {
@@ -197,4 +206,18 @@ $ripped-points:
   clip-path: polygon(#{$ripped-points});
   padding: 2rem 3rem;
   filter: brightness(1.25);
+}
+
+
+// ========================
+// Responsive Personal Links
+// ========================
+@media (max-width: 768px) {
+  .personal-links {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 1rem;
+    transform: none;
+  }
 }
