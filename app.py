@@ -51,10 +51,9 @@ def home():
         character.apply_base_scores(ability_scores)
         character.apply_base_skill_modifiers()
 
-        # character.ability_scores.update(ability_scores)
         for stat, value in ability_scores.items():
             if value:
-                character.ability_scores[stat] += int(value)
+                character.ability_scores[stat] = int(value)
         
         return render_template("index.html", races=races, classes=classes, backgrounds=backgrounds, character=character, skills=sorted(skills))
         
