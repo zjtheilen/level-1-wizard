@@ -34,13 +34,13 @@
     <div class="row">
         {% for skill in skills %}
             {% set attr_name = skill.lower().replace(" ", "_").replace("-", "_") %}
-            <div class="col-6 col-md-4 mb-2">
-                <p><strong>{{ skill }}:</strong> 
+            <span class="col-6 col-md-4">
+                <p class="group-skill"><strong>{{ skill }}:</strong> 
                     {% if character %}
                         {{ character.skills[attr_name]}}
                     {% endif %}
                 </p>
-            </div>
+            </span>
         {% endfor %}
     </div>
 </div>

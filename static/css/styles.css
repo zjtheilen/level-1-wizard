@@ -51,7 +51,10 @@ input, select, .white-box, .form-control {
   width: 100vw; }
 
 .form-margin {
-  margin: 0 auto !important; }
+  margin: 0 .5rem 0 auto !important; }
+
+.group-skill {
+  margin: 0; }
 
 button.animate {
   background-color: darkred !important;
