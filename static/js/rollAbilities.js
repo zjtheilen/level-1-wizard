@@ -1,3 +1,6 @@
+// roll 4 dice, drop the lowest, check that it's atleast 8, try again if necessary
+// do this seven times, again dropping the lowest grouping
+// show the 6 final groups as totals to user, send 6 totalled roll groups to be assigned
 function rollAbilities() {
     const rolls = [];
 
@@ -20,6 +23,8 @@ function rollAbilities() {
     assignAbilities(rolls)
 }
 
+// Assign the rolled scores for each stat
+// Rolled numbers are removed from selections as they are assigned
 function assignAbilities(rolls) {
     const abilitySelects = document.querySelectorAll(".stat-assigner select");
     const available = [...rolls];
@@ -59,6 +64,7 @@ function assignAbilities(rolls) {
     });
 }
 
+// Display rolled numbers from rollAbilities() as options in dropdown menus for each stat
 function populateSelect(select, availableValues, currentValue) {
     select.innerHTML = '<option value="">Select</option>';
     [...availableValues].sort((a, b) => b - a).forEach(v => {

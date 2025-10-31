@@ -1,3 +1,4 @@
+<!-- Main Form for all character selections / assignments -->
 <form action="/" method="POST" class="mb-3">
     <div class="row g-3 form-margin"> <!-- player / character name -->
         <div class="col-md-6">
@@ -83,6 +84,8 @@
         <button class="animate btn btn-success me-2" type="submit">Create Character</button>
     </div>
 </form>
+
+<!-- Reset form -->
 <form action="{{ url_for('reset_character') }}" method="POST" class="d-flex me-2">
     <button type="submit" class="animate btn btn-danger m-auto">Reset Character</button>
 </form>

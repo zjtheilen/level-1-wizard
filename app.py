@@ -20,10 +20,12 @@ scss = Bundle(
 assets.register('scss_all', scss)
 scss.build()  # build on startup (optional)
 
+# resets form / reloads page
 @app.route("/reset", methods=["POST"])
 def reset_character():
     return redirect(url_for("home"))
 
+# creates character based on user input
 @app.route("/", methods=["GET", "POST"])
 def home():
     if request.method == "POST":
@@ -43,10 +45,12 @@ def home():
             "cha": request.form.get("charisma", 0),
         }
 
+        # all fields must be complete before submitting
         if not all([race_name, class_name, player_name, character_name, background_name]):
             session["error"] = "Must complete all fields before continuing."
             return redirect(url_for("home"))
 
+        # begin building character
         character = build_character(player_name, character_name, race_name, class_name, background_name)
         character.apply_base_scores(ability_scores)
         character.apply_base_skill_modifiers()
@@ -54,6 +58,7 @@ def home():
         for stat, value in ability_scores.items():
             if value:
                 character.ability_scores[stat] = int(value)
+        # end building character
         
         return render_template("index.html", races=races, classes=classes, backgrounds=backgrounds, character=character, skills=sorted(skills))
         
