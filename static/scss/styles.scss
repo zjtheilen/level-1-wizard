@@ -3,8 +3,8 @@
 // ========================
 $blood-red: rgb(139,0,0);
 $transparent-blood: rgba(139,0,0,0.5);
-$parchment: antiquewhite;
-$transparent-white: rgba(255,255,255,0.3);
+$parchment: rgba(250,235,215,1);
+$transparent-parchment: rgba(250,235,215,0.3);
 $ink-brown: rgb(45,20,20);
 $shadow: -1px 6px 3px rgba(0,0,0,0.5);
 
@@ -12,7 +12,7 @@ $shadow: -1px 6px 3px rgba(0,0,0,0.5);
   --blood-red: #{$blood-red};
   --transparent-blood: #{$transparent-blood};
   --parchment: #{$parchment};
-  --transparent-white: #{$transparent-white};
+  --transparent-parchment: #{$transparent-parchment};
   --ink-brown: #{$ink-brown};
   --shadow: #{$shadow};
 }
@@ -80,9 +80,9 @@ button {
 }
 
 %frosted-box {
-  background-color: $transparent-white;
-  border-radius: 5px;
-  border: none;
+  background-color: $transparent-parchment !important;
+  border-radius: 5px !important;
+  border: none !important;
 }
 
 input, select, .white-box, .form-control {
@@ -103,6 +103,10 @@ input, select, .white-box, .form-control {
   width: 100vw;
 }
 
+.form-margin {
+  margin: 0 auto !important;
+}
+
 // ========================
 // Buttons
 // ========================
@@ -116,7 +120,7 @@ button.animate {
   border-radius: 5px;
   border: none;
 
-  @include hover-sweep($transparent-white);
+  @include hover-sweep($transparent-parchment);
 }
 
 // ========================

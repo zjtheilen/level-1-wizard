@@ -1,16 +1,14 @@
 <form action="/" method="POST" class="mb-3">
-    <div class="mb-3 row g-3"> <!-- player / character name -->
+    <div class="row g-3 form-margin"> <!-- player / character name -->
         <div class="col-md-6">
-            <label for="player_name" class="form-label">Player name:</label>
-            <input type="text" id="player_name" name="player_name" class="form-control" required>            
+            <input value="Player Name" type="text" id="player_name" name="player_name" class="form-control" required>            
         </div>
         <div class="col-md-6">
-            <label for="character_name" class="form-label">Character name:</label>
-            <input type="text" id="character_name" name="character_name" class="form-control" required>
+            <input value="Character Name" type="text" id="character_name" name="character_name" class="form-control" required>
         </div>
     </div>
 
-    <div class="mb-3 row g-3"> <!-- race / class / background -->
+    <div class="mb-3 row g-3 form-margin"> <!-- race / class / background -->
         <div class="col-md-4">
             <select name="race" id="race" class="form-select" required>
                 <option value="" disabled selected>Select Race</option>
@@ -38,12 +36,11 @@
     </div>
 
     <div> <!-- dice roller / assigner -->
-        <span class="dice-roller">
+        <span class="dice-roller mb-1">
             <button class="animate" type="button" onclick="rollAbilities()">Roll Ability Scores</button>
             <br>
             <span id="roleScores"></span>
         </span>
-        <br>
         <div class="w-100 d-flex">
             <span class="stat-assigner">
                 <label for="strength">STR:</label>
@@ -84,8 +81,8 @@
 
     <div class="text-center mt-3"> <!-- form submit  -->
         <button class="animate btn btn-success me-2" type="submit">Create Character</button>
-        <form action="{{ url_for('reset_character') }}" method="POST" class="d-inline">
-            <button type="submit" class="animate btn btn-danger">Reset Character</button>
-        </form>
     </div>
+</form>
+<form action="{{ url_for('reset_character') }}" method="POST" class="d-flex me-2">
+    <button type="submit" class="animate btn btn-danger m-auto">Reset Character</button>
 </form>
