@@ -17,3 +17,6 @@
 
 5. Run app
     `python app.py`
+
+6. Access running app
+    Navigate your browser to `http://127.0.0.1:5000/`
