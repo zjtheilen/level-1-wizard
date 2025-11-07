@@ -2,17 +2,17 @@
 <form action="/" method="POST" class="mb-3">
     <div class="row g-3 form-margin"> <!-- player / character name -->
         <div class="col-md-6">
-            <input value="Player Name" type="text" id="player_name" name="player_name" class="form-control" required>            
+            <input placeholder="Player Name" type="text" id="player_name" name="player_name" class="form-control" required>            
         </div>
         <div class="col-md-6">
-            <input value="Character Name" type="text" id="character_name" name="character_name" class="form-control" required>
+            <input placeholder="Character Name" type="text" id="character_name" name="character_name" class="form-control" required>
         </div>
     </div>
 
     <div class="mb-3 row g-3 form-margin"> <!-- race / class / background -->
         <div class="col-md-4">
             <select name="race" id="race" class="form-select" required>
-                <option value="" disabled selected>Select Race</option>
+                <option value="" disabled selected hidden>Select Race</option>
                 {% for race in races %}
                     <option value="{{race.lower()}}">{{race.capitalize()}}</option>
                 {% endfor %}
@@ -20,7 +20,7 @@
         </div>
         <div class="col-md-4">
             <select name="char_class" id="char_class" class="form-select" required>
-                <option value="" disabled selected>Select Class</option>
+                <option value="" disabled selected hidden>Select Class</option>
                 {% for char_class in classes %}
                     <option value="{{char_class.lower()}}">{{char_class.capitalize()}}</option>
                 {% endfor %}
@@ -28,7 +28,7 @@
         </div>
         <div class="col-md-4">
             <select name="background_name" id="background_name" class="form-select" required>
-                <option value="" disabled selected>Select Background</option>
+                <option value="" disabled selected hidden>Select Background</option>
                 {% for background_name in backgrounds %}
                     <option value="{{background_name.lower()}}">{{background_name.capitalize()}}</option>
                 {% endfor %}
@@ -76,8 +76,6 @@
                 </select>
             </span>
         </div>
-
-
     </div>
 
     <div class="text-center mt-3"> <!-- form submit  -->
